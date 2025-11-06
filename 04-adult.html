@@ -37,7 +37,14 @@
     function verifyAge() {
         let age = document.getElementById("age").value;
 
-        // CODE HERE !
+        let messageBienvenue = "Bienvenue sur le site";
+        let messageNonBienvenue = "Vous devez être majeur pour accèder au site";
+
+        if(age>17){
+            alert(messageBienvenue); //Si age est strictement supérieur à 17 on affiche la valeur de messageBienvenue
+        }else{
+            alert(messageNonBienvenue);//Sinon (si age est inférieur ou égal à 17) on affiche la valeur de messageNonBienvenue
+        }
     }
 </script>
 </body>

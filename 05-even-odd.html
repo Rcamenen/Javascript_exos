@@ -39,7 +39,13 @@
 
         let number = document.getElementById("number").value;
 
-        // CODE HERE !
+        let modulo = number%2; //On calcul le modulo de number
+
+        if(modulo===0){
+            alert(number + " est pair") //Si le modulo est égal à 0 alors on affiche que le nombre est pair
+        } else{
+            alert(number + " est impair") //Si le modulo est égal à 0 alors on affiche que le nombre est impair
+        }
     }
 </script>
 </body>

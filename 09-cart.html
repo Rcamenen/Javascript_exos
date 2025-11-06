@@ -41,9 +41,25 @@
 
     function cartValue() {
         let articles = document.getElementById("articles");
+        let codePromo = document.getElementById("promotion");
+
         let selectedArticle = articles.options[articles.selectedIndex].value;
 
-        // CODE HERE !
+        let price;
+
+        switch(selectedArticle){
+            case "one":
+                price = 30;
+                break;
+            case "two":
+                price = 50;
+                break;
+        }
+
+        if(codePromo.value==="10pour100"){
+            //price*=0.9;
+            alert("La valeur de votre panier est de "+price+"€");
+        }
     }
 </script>
 </body>

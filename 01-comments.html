@@ -27,13 +27,14 @@
 </div>
 
 <script type="text/javascript">
+    //Déclaration de la fonction qui affiche le message de bonjour à l'utilisateur qui rensigne son nom et prénom dans le formulaire
     function displayMessage() {
-        let firstname = document.getElementById("firstname").value;
-        let lastname = document.getElementById("lastname").value;
-        let fullname = firstname + " " + lastname.toUpperCase();
-        let message = "Bonjour " + fullname;
+        let firstname = document.getElementById("firstname").value; //Récupération de la valeur de l'ID "firstname" dans la variable firstname
+        let lastname = document.getElementById("lastname").value; //Récupération de la valeur de l'ID "firstname" dans la variable lastname
+        let fullname = firstname + " " + lastname.toUpperCase(); //Déclaration de la variable fullname égale à la concaténation de firstname + " " + lastname en majuscule
+        let message = "Bonjour " + fullname; // Déclaration de la variable message concaténation de "Bonjour " + fullname
 
-        alert(message)
+        alert(message) //Affichage d'une alerte dont le contenu est la variable message
     }
 </script>
 </body>

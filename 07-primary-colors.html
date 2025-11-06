@@ -39,7 +39,17 @@
         let colors = document.getElementById("colors");
         let secondaryColor = colors.options[colors.selectedIndex].value;
 
-        // CODE HERE !
+        switch(secondaryColor){
+            case "green":
+                alert("Le vert est composé de bleu et jaune");
+                break;
+            case "purple":
+                alert("Le violet est composé de bleu et rouge");
+                break;
+            case "orange":
+                alert("Le orange est composé de rouge et de jaune");
+                break;
+        }
     }
 </script>
 </body>
