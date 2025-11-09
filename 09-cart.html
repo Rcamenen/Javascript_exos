@@ -39,14 +39,17 @@
 <script type="text/javascript">
     const VALID_PROMOTION_CODE = "10POUR100";
 
+    //Déclaration de la fonction cartValue qui calcul et affiche la valeur du panier
     function cartValue() {
+        //Récupération de la valeur des champs articles et promotion du formulaire sélectionné par l'utilisateur
         let articles = document.getElementById("articles");
-        let codePromo = document.getElementById("promotion");
-
         let selectedArticle = articles.options[articles.selectedIndex].value;
-
+        let codePromo = document.getElementById("promotion");
+        
+        //Déclaration de la variable price qui contiendra le prix de l'article sélectionné
         let price;
 
+        //Affectation d'une valeur à price selon l'article sélectionné ("one" ou "two")
         switch(selectedArticle){
             case "one":
                 price = 30;
@@ -56,9 +59,12 @@
                 break;
         }
 
+        //Affichage de la valeur du panier selon si le code promo est utilisé ou non
         if(codePromo.value==="10POUR100"){
             price*=0.9;
             alert("La valeur de votre panier est de "+price+"€");
+        }else{
+            alert("La valeur de votre panier est de "+price + "€")
         }
     }
 </script>

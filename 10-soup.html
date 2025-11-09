@@ -61,6 +61,8 @@
 </div>
 
 <script type="text/javascript">
+
+    //Déclaration de la fonction doYouLikeIt qui compare les valeurs retournées par les fonctions isSalty, isSweet et isPoisoned
     function doYouLikeIt() {
         if(isPoisoned()){
             return alert("Game over...");
@@ -76,6 +78,7 @@
         }
     }
 
+    //Déclaration de la fonction isSalty qui retourne true si un des ingrédients salés est sélectionné par l'utilisateur
     function isSalty() {
         let carrots = document.getElementById("carrots").checked;
         let potatoes = document.getElementById("potatoes").checked;
@@ -86,6 +89,7 @@
         return false;
     }
 
+    //Déclaration de la fonction isSweet qui retourne true si un des ingrédients sucrés est sélectionné par l'utilisateur
     function isSweet() {
         let blackChocolate = document.getElementById("black-chocolate").checked;
         let whiteChocolate = document.getElementById("white-chocolate").checked;
@@ -95,6 +99,7 @@
         return false
     }
 
+    //Déclaration de la fonction isPoisoned qui retourne true si un des ingrédients poisons est sélectionné par l'utilisateur
     function isPoisoned() {
         let vitriol = document.getElementById("vitriol").checked;
         let cyanide = document.getElementById("cyanide").checked;

@@ -32,8 +32,10 @@
     const MELTING_POINT = 12;
 
     function solidOrLiquid() {
+        //Récupération de la valeur d'entrée
         let temperature = document.getElementById("temperature").value
 
+        //Comparaison de la valeur d'entrée avec le MELTING_POINT
         if(temperature > MELTING_POINT) {
             alert("C'est de l'eau liquide !");
         } else {

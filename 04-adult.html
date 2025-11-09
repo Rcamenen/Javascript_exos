@@ -28,7 +28,7 @@
     <label>Renseignez votre âge</label>
     <br/>
     <input type="text" id="age" />
-    <button type="button" class="btn btn-primary" onclick="verifyAge()">
+    <button type="button" class="btn btn-priÒmary" onclick="verifyAge()">
         Entrer sur le site
     </button>
 </div>
@@ -37,8 +37,12 @@
     function verifyAge() {
         let age = document.getElementById("age").value;
 
+        //Déclaration des messages à afficher
+
         let messageBienvenue = "Bienvenue sur le site";
         let messageNonBienvenue = "Vous devez être majeur pour accèder au site";
+
+        //Test de la valeur entrée par l'utilisateur
 
         if(age>17){
             alert(messageBienvenue); //Si age est strictement supérieur à 17 on affiche la valeur de messageBienvenue
