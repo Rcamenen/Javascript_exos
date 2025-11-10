@@ -38,12 +38,21 @@
 
 <script type="text/javascript">
 
-    //Déclaration de la fonction convert qui applique un coefficient de conversion selon si l'entrée est "eur" ou "usd"
+    /*
+    Déclaration fonction convert()
+    qui retourne retourne une valeur
+    eur vers usd ou usd vers eur
+    */
+
     function convert(){
 
     inputVal = document.getElementById("value").value;
     currencyChoice = document.getElementById("currencies").value
     coeff = 1.0729;// 1 EUR = 1.0729 USD
+
+    /*Calcul de la conversion selon
+        si l'entrée est eur ou usd
+    */
 
     if (currencyChoice == "eur") {
         result = inputVal*coeff;
@@ -55,7 +64,7 @@
         msg = "Entrer une valeur à convertir"
     }
 
-    alert(msg);
+    alert(msg); //Affichage du résultat
 }
 </script>
 </body>
