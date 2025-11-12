@@ -34,7 +34,7 @@
 
     <br/>
     <label for="mail">Adresse électronique</label>
-    <input type="text" id="mail" name="mail" placeholder="Votre adresse électronique">
+    <input type="text" id="mail" name="mail" placeholder="Votre adresse électronique" value="firstname.lastname@domain.ext">
 
     <button type="button" class="btn btn-primary" onclick="checkEmail()">
         Tester l'adresse électronique
@@ -44,9 +44,76 @@
 
 <script type="text/javascript">
 
+    /* ------------------ 1ère version
+    
     function checkEmail() {
-        // CODE HERE !
+        
+        let email = document.getElementById("mail").value;
 
+        let emailSplit = email.split(".");
+
+        if(emailSplit.length > 1 && emailSplit.length<4 && email.split("@").length!=1){ // On check si on a entre un et deux "." et un seul "@".
+
+            for(i=0;i<emailSplit.length;i++){
+
+                console.log((emailSplit[i].indexOf("@")>2) && ((emailSplit[i].length-1)-emailSplit[i].indexOf("@")>5));
+
+                if((emailSplit[i].indexOf("@")!=(-1) && i!=(emailSplit.length-2)) || (emailSplit[i].split("@").length>2)) { //On vérifie que le "@" n'est pas présent dans le dernier index, ou bien le premier si un firstname est présent
+
+                    return alert("Email incorrecte 1");
+                    break;
+
+                } else if((emailSplit[i].indexOf("@")>2) && ((emailSplit[i].length-1)-emailSplit[i].indexOf("@")>5)){  //On vérifie que le "@" est bien encadré par un lastname > 3 et un domaine > 5
+                    alert("C'est ok");
+                }
+            }
+        }else{
+            return alert("Email incorrecte 3");
+        }
+
+    }
+    */
+
+    // ------------------ 2ème version
+
+    function checkEmail(){
+        let email = document.getElementById("mail").value;
+        let emailAtSplit = email.split("@");
+
+        const MESSAGE_INVALIDE = "Email invalide";
+        const MESSAGE_VALIDE = "Email valide"
+
+        // Si l'email ne contient pas "@" ou en contient plus d'un, affichage MESSAGE_INVALIDE
+        if(emailAtSplit.length > 2 || emailAtSplit.length == 1){
+            alert(MESSAGE_INVALIDE);
+            return false;
+        }
+
+        /* Split par les "." des valeurs de emailAtSplit */
+        let preAt = emailAtSplit[0];
+        let postAt = emailAtSplit[1];
+
+        let preAtDotSplit = preAt.split(".");
+        let preAtDotSplitLg = preAtDotSplit.length
+        let postAtDotSplit = postAt.split(".");
+
+        let lastname = preAtDotSplit[preAtDotSplitLg-1]; //On définit le last name sur le dernier index, index 0 ou 1 suivant si précédé par un firstname ou pas...
+        let domain = postAtDotSplit[0];
+        let ext = postAtDotSplit[1];
+
+        // Si l'email ne contient pas "@" ou en contient plus d'un, affichage MESSAGE_INVALIDE
+        if(preAtDotSplit > 2 || postAtDotSplit > 2){
+            alert(MESSAGE_INVALIDE);
+            return false;
+        }
+
+        // Si l'email à un surname, domain ou extension NC on affiche MESSAGE_INVALIDE
+        if((lastname.length)<3 || ext.length>4 || ext.length<2 || domain.length<6){
+            alert(MESSAGE_INVALIDE);
+            return false;
+        }
+
+        return alert(MESSAGE_VALIDE); //On affiche MESSAGE_VALIDE si tous les test ont été passés
     }
 
 </script>
