@@ -36,17 +36,17 @@
     <label for="mail">Adresse électronique</label>
     <input type="text" id="mail" name="mail" placeholder="Votre adresse électronique" value="firstname.lastname@domain.ext">
 
-    <button type="button" class="btn btn-primary" onclick="checkEmail()">
+    <button type="button" class="btn btn-primary" onclick="checkEmail3()">
         Tester l'adresse électronique
     </button>
 
 </div>
 
 <script type="text/javascript">
-
-    /* ------------------ 1ère version
     
-    function checkEmail() {
+    // ------------------ 1ère version
+
+    function checkEmail1() {
         
         let email = document.getElementById("mail").value;
 
@@ -72,62 +72,61 @@
         }
 
     }
-    */
 
     // ------------------ 2ème version
 
-    // function checkEmail(){
-    //     let email = document.getElementById("mail").value;
-    //     let emailAtSplit = email.split("@");
+    function checkEmail2(){
+        let email = document.getElementById("mail").value;
+        let emailAtSplit = email.split("@");
 
-    //     const MESSAGE_INVALIDE = "Email invalide";
-    //     const MESSAGE_VALIDE = "Email valide"
+        const MESSAGE_INVALIDE = "Email invalide";
+        const MESSAGE_VALIDE = "Email valide"
 
-    //     // Si l'email ne contient pas "@" ou en contient plus d'un, affichage MESSAGE_INVALIDE
-    //     if(emailAtSplit.length > 2 || emailAtSplit.length == 1){
-    //         alert(MESSAGE_INVALIDE);
-    //         return false;
-    //     }
+        // Si l'email ne contient pas "@" ou en contient plus d'un, affichage MESSAGE_INVALIDE
+        if(emailAtSplit.length > 2 || emailAtSplit.length == 1){
+            alert(MESSAGE_INVALIDE);
+            return false;
+        }
 
-    //     /* Split par les "." des valeurs de emailAtSplit */
-    //     let preAt = emailAtSplit[0];
-    //     let postAt = emailAtSplit[1];
+        /* Split par les "." des valeurs de emailAtSplit */
+        let preAt = emailAtSplit[0];
+        let postAt = emailAtSplit[1];
 
-    //     let preAtDotSplit = preAt.split(".");
-    //     let preAtDotSplitLg = preAtDotSplit.length
-    //     let postAtDotSplit = postAt.split(".");
+        let preAtDotSplit = preAt.split(".");
+        let preAtDotSplitLg = preAtDotSplit.length
+        let postAtDotSplit = postAt.split(".");
 
-    //     let lastname = preAtDotSplit[preAtDotSplitLg-1]; //On définit le last name sur le dernier index, index 0 ou 1 suivant si précédé par un firstname ou pas...
-    //     let domain = postAtDotSplit[0];
-    //     let ext = postAtDotSplit[1];
+        let lastname = preAtDotSplit[preAtDotSplitLg-1]; //On définit le last name sur le dernier index, index 0 ou 1 suivant si précédé par un firstname ou pas...
+        let domain = postAtDotSplit[0];
+        let ext = postAtDotSplit[1];
 
-    //     // Si l'email ne contient pas "@" ou en contient plus d'un, affichage MESSAGE_INVALIDE
-    //     if(preAtDotSplit > 2 || postAtDotSplit > 2){
-    //         alert(MESSAGE_INVALIDE);
-    //         return false;
-    //     }
+        // Si l'email ne contient pas "@" ou en contient plus d'un, affichage MESSAGE_INVALIDE
+        if(preAtDotSplit > 2 || postAtDotSplit > 2){
+            alert(MESSAGE_INVALIDE);
+            return false;
+        }
 
-    //     // Si l'email à un surname, domain ou extension NC on affiche MESSAGE_INVALIDE
-    //     if((lastname.length)<3 || ext.length>4 || ext.length<2 || domain.length<6){
-    //         alert(MESSAGE_INVALIDE);
-    //         return false;
-    //     }
+        // Si l'email à un surname, domain ou extension NC on affiche MESSAGE_INVALIDE
+        if((lastname.length)<3 || ext.length>4 || ext.length<2 || domain.length<6){
+            alert(MESSAGE_INVALIDE);
+            return false;
+        }
 
-    //     return alert(MESSAGE_VALIDE); //On affiche MESSAGE_VALIDE si tous les test ont été passés
-    // }
+        return alert(MESSAGE_VALIDE); //On affiche MESSAGE_VALIDE si tous les test ont été passés
+    }
 
-    function checkEmail(){
+    // ------------------ 3ème version
+
+    function checkEmail3(){
         let email = document.getElementById("mail").value;
 
-        if(email.match(/^([a-z0-9][a-z0-9-_]*[a-z0-9]\.{1})?[a-z0-9][a-z0-9-_]{1,}[a-z0-9]@[a-z0-9][a-z0-9-_]{4,}[a-z0-9]\.[a-z0-9][a-z0-9-]{0,2}[a-z0-9]$/gm)){
+        if(email.match(/^([a-z0-9][a-z0-9\-_]*[a-z0-9]\.{1})?[a-z0-9][a-z0-9\-_]{1,}[a-z0-9]@[a-z0-9][a-z0-9\-_]{4,}[a-z0-9]\.[a-z0-9]{2,4}$/gm)){
             console.log("ça match");
         }else{
             console.log("ça ne match pas");
         }
 
     }
-
-// /^[a-z0-9][a-z0-9-_]*[a-z0-9]\.{1}[a-z0-9][a-z0-9-_]{5,}[a-z0-9]@[a-z0-9][a-z0-9-_]{4,}[a-z0-9]\.[a-z0-9][a-z0-9-]{0,2}[a-z0-9]$/gm
 
 </script>
 </body>
